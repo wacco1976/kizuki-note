@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>気づきノート</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header>
+      <h1>気づきノート</h1>
+      <div class="header-actions">
+        <button id="btn-summary" class="icon-btn" title="週次サマリー">📊</button>
+        <button id="btn-export" class="icon-btn" title="エクスポート">📤</button>
+        <button id="btn-search" class="icon-btn" title="検索">🔍</button>
+      </div>
+    </header>
+
+    <!-- Input Area -->
+    <section id="input-section">
+      <div id="voice-area">
+        <button id="btn-voice" class="voice-btn">🎙</button>
+        <span id="voice-status">タップして話す</span>
+      </div>
+      <textarea id="input-text" placeholder="または、ここに直接入力…" rows="3"></textarea>
+
+      <!-- Domain -->
+      <div class="tag-row">
+        <span class="tag-label">領域</span>
+        <div class="tag-group" id="domain-group">
+          <button class="tag-btn" data-value="仕事">仕事</button>
+          <button class="tag-btn" data-value="人間関係">人間関係</button>
+          <button class="tag-btn" data-value="自分">自分</button>
+          <button class="tag-btn" data-value="学び">学び</button>
+        </div>
+      </div>
+
+      <!-- Tone -->
+      <div class="tag-row">
+        <span class="tag-label">トーン</span>
+        <div class="tag-group" id="tone-group">
+          <button class="tag-btn" data-value="💡">💡気づき</button>
+          <button class="tag-btn" data-value="🔄">🔄反省</button>
+          <button class="tag-btn" data-value="✅">✅よかった</button>
+          <button class="tag-btn" data-value="😤">😤モヤモヤ</button>
+        </div>
+      </div>
+
+      <!-- Auto Keywords -->
+      <div class="tag-row">
+        <span class="tag-label">キーワード</span>
+        <div id="keyword-chips"></div>
+      </div>
+
+      <button id="btn-save" class="save-btn">保存する</button>
+    </section>
+
+    <!-- Related Notes -->
+    <section id="related-section" class="hidden">
+      <h2 class="section-title">🔗 関連する過去メモ</h2>
+      <div id="related-list"></div>
+    </section>
+
+    <!-- Notes List -->
+    <section id="notes-section">
+      <h2 class="section-title">メモ一覧</h2>
+      <div class="filter-row">
+        <select id="filter-domain">
+          <option value="">すべての領域</option>
+          <option value="仕事">仕事</option>
+          <option value="人間関係">人間関係</option>
+          <option value="自分">自分</option>
+          <option value="学び">学び</option>
+        </select>
+        <select id="filter-tone">
+          <option value="">すべてのトーン</option>
+          <option value="💡">💡気づき</option>
+          <option value="🔄">🔄反省</option>
+          <option value="✅">✅よかった</option>
+          <option value="😤">😤モヤモヤ</option>
+        </select>
+      </div>
+      <div id="notes-list"></div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal">
+      <div id="modal-content"></div>
+      <button id="modal-close" class="save-btn">閉じる</button>
+    </div>
+  </div>
+
+  <!-- Search Panel -->
+  <div id="search-panel" class="hidden">
+    <div class="search-header">
+      <input id="search-input" type="text" placeholder="キーワードで検索…" />
+      <button id="search-close" class="icon-btn">✕</button>
+    </div>
+    <div id="search-results"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
