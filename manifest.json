@@ -2,7 +2,7 @@
   "name": "気づきノート",
   "short_name": "気づきノート",
   "description": "日々の気づき・反省・学びを記録するメモアプリ",
-  "start_url": "/",
+  "start_url": "/kizuki-note/"
   "display": "standalone",
   "background_color": "#0f0f1a",
   "theme_color": "#1a1a2e",
